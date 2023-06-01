@@ -32,6 +32,6 @@ Use this section to recap over some of your major learnings while working throug
 
 ### Links
 
-- Solution URL: 
+- Solution URL: https://github.com/rahulvr29/Guess-My-Number
 
-- Live Site URL: 
+- Live Site URL: https://spiffy-starburst-0640d1.netlify.app/
