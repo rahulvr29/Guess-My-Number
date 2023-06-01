@@ -7,8 +7,7 @@ body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   font-size: 20px;
-  background-color: black;
-  color: whitesmoke;
+  
 }
 .start-btn, .reset-btn, .check-btn{
   background-color: #575757;

@@ -1,55 +1,57 @@
-let btn_start = document.getElementById("start");
-let btn_reset = document.getElementById("reset");
-let btn_check = document.getElementById("check");
-let main_div = document.getElementById('main-div');
-let guess_box = document.getElementById('all-guesses');
-let high_or_low = document.getElementById('high-or-low');
+const btn_start = document.getElementById("start");
+const btn_reset = document.getElementById("reset");
+const btn_check = document.getElementById("check");
 
-let  random_num = Math.floor(Math.random()*100) + 1;
+const main_div = document.getElementById("main-div");
 
-let  count_guess = 1;
+const guess_box = document.getElementById("guess-box");
+const all_guesses = document.getElementById("all-guesses");
+const high_or_low = document.getElementById("high-or-low");
 
+const random_num = Math.floor(Math.random() * 100) + 1;
 
-function start(){
-  main_div.style.visibility = "visible";
+const count_guess = 1;
+
+function start() {
+    main_div.style.visibility = "visible";
 }
-function checkGuess(){
-  let your_guess = Number(guess_box.value);
 
-  if(count_guess <= 10){
-    if(your_guess < random_num){
-      all_guesses.textContent += your_guess + " ";
-      high_or_low.textContent = "Your guess is Low";
-      high_or_low.classList.add("wrong");
-      count_guess++;
-      guess_box.value= "";
-    }
+function checkGuess() {
+    const your_guess = Number(guess_box.value);
 
-  else if (your_guess > random_num){
-      all_guesses.textContent += your_guess + " ";
-      high_or_low.textContent = "Your guess is High";
-      high_or_low.classList.add("wrong");
-      count_guess++;
-      guess_box.value= "";
+    if (count_guess <= 10) {
+        if (your_guess < random_num) {
+            all_guesses.textContent += your_guess + " ";
+            high_or_low.textContent = "Your Guess is Low";
+            high_or_low.classList.add("wrong");
+            count_guess++;
+            guess_box.value = '';
+        }
+        else if (your_guess > random_num) {
+            all_guesses.textContent += your_guess + " ";
+            high_or_low.textContent = "Your Guess is High";
+            high_or_low.classList.add("wrong");
+            count_guess++;
+            guess_box.value = '';
+        }
+        else {
+            all_guesses.textContent += your_guess + " ";
+            high_or_low.textContent = "Congratulations! You Guessed it Right.";
+            high_or_low.classList.add("success");
+            guess_box.value = '';
+            gameOver();
+        }
     }
-    else{
-      all_guesses.textContent += your_guess + " ";
-      high_or_low.textContent = "Congratulation! You guess is Correct.";
-      high_or_low.classList.add("success");
-      guess_box.value= "";
-      gameOver();
+    else {
+        all_guesses.textContent += your_guess + " ";
+        high_or_low.textContent = "Game Over! Sorry, your chances are over.";
+        high_or_low.classList.add("wrong");
+        guess_box.value = '';
+        gameOver();
     }
-  }
-  else{
-    all_guesses.textContent += your_guess + " ";
-      high_or_low.textContent = "Game Over! Sorry, your chance are over.";
-      high_or_low.classList.add("wrong");
-      guess_box.value= "";
-      gameOver();
-  }
-  
 }
-function gameOver(){
-  btn_check.disabled = true;
-  guess_box.disabled = true;
+
+function gameOver() {
+    btn_check.disabled = true;
+    guess_box.disabled = true;
 }
